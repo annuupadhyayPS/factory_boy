@@ -72,7 +72,10 @@ jobs:
               source .env/bin/activate && \
               python -m pip install --upgrade pip && \
               python -m pip install tox && \
-              python -m pip install mongoengine
+              apt install mongodb && \
+              systemctl status mongodb && \
+              systemctl start mongodb && \
+              python -m pip install mongoengine && \
               tox -e py38-django22-alchemy-mongoengine && \
               tox && \
               deactivate'
