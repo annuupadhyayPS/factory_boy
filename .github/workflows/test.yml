@@ -16,8 +16,8 @@ jobs:
           - 3.8
         tox-environment:
           - django22-alchemy-mongoengine
-          - django31-alchemy-mongoengine
-          - django32-alchemy-mongoengine
+          #- django31-alchemy-mongoengine
+          #- django32-alchemy-mongoengine
 
     services:
       mongodb:
@@ -52,8 +52,8 @@ jobs:
             - 3.8
           tox-environment:
             - django22-alchemy-mongoengine
-            - django31-alchemy-mongoengine
-            - django32-alchemy-mongoengine
+            #- django31-alchemy-mongoengine
+            #- django32-alchemy-mongoengine
       env:
         TOXENV: ${{ matrix.tox-environment }}    
       steps:
@@ -72,6 +72,7 @@ jobs:
               source .env/bin/activate && \
               python -m pip install --upgrade pip && \
               python -m pip install tox && \
-              tox -e py38-django32-alchemy-mongoengine && \
+              python -m pip install mongoengine
+              tox -e py38-django22-alchemy-mongoengine && \
               tox && \
               deactivate'
