@@ -78,6 +78,7 @@ jobs:
               #service mongod status && \
               #service mongodb start && \
               apt-get update && apt-get install -y lsb-release && apt-get clean all && \
+              apt-get install wget && \
               wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
               apt-get install gnupg && \
               wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add - && \
