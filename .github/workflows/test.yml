@@ -74,8 +74,8 @@ jobs:
               python -m pip install tox && \
               apt install -y mongodb && \
               apt-get install -y systemd && \
-              systemctl status mongodb && \
-              systemctl start mongodb && \
+              #systemctl status mongodb && \
+              service start mongodb && \
               python -m pip install mongoengine && \
               tox -e py38-django22-alchemy-mongoengine && \
               tox && \
