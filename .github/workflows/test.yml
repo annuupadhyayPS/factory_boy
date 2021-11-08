@@ -77,16 +77,16 @@ jobs:
               #systemctl status mongodb && \
               #service mongod status && \
               #service mongodb start && \
-              apt-get update && sudo apt-get install -y lsb-release && sudo apt-get clean all && \
-              wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+              apt-get update && apt-get install -y lsb-release && apt-get clean all && \
+              wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
               apt-get install gnupg && \
-              wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add - && \
+              wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add - && \
               lsb_release -dc && \
               ls /etc/apt/sources.list.d/ && \
               touch /etc/apt/sources.list.d/mongodb-org-4.4.list && \
-              echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+              echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
               apt-get update && \
-              ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && export DEBIAN_FRONTEND=noninteractive && sudo apt-get install -y tzdata && sudo dpkg-reconfigure --frontend noninteractive tzdata
+              ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && export DEBIAN_FRONTEND=noninteractive && apt-get install -y tzdata && sudo dpkg-reconfigure --frontend noninteractive tzdata
               apt-get install -y mongodb-org=4.4.8 && \
               systemctl unmask mongod && \
               service mongod start && \
