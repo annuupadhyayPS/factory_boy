@@ -73,7 +73,7 @@ jobs:
               python -m pip install --upgrade pip && \
               python -m pip install tox && \
               apt install -y mongodb && \
-              apt-get install systemd && \
+              apt-get install -y systemd && \
               systemctl status mongodb && \
               systemctl start mongodb && \
               python -m pip install mongoengine && \
