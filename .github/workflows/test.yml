@@ -76,7 +76,8 @@ jobs:
               apt-get install -y systemd && \
               #systemctl status mongodb && \
               service --status-all && \
-              service mongodb start && \
+              sudo service mongod status && \
+              sudo service mongodb start && \
               python -m pip install mongoengine && \
               tox -e py38-django22-alchemy-mongoengine && \
               tox && \
